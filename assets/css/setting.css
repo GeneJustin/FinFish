@@ -1,0 +1,416 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    background: #dbe7ff;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    transition: background 0.3s, color 0.3s;
+}
+
+.page-container {
+    display: flex;
+    padding: 15px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #b4c9f1;
+    padding: 10px 20px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 220px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #222;
+    border: 1px solid #b8c3d6;
+    background: #d7e1f4;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    background: #b9caef;
+}
+
+.user-greeting {
+    color: #0c3b6e;
+    font-weight: bold;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(12, 59, 110, 0.2);
+}
+
+.btn-login {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.15);
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.active {
+    background: #A6B5D4 !important;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0c3b6e;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #0c3b6e;
+}
+
+#darkModeBtn {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+body.dark {
+    background: #1c1c1c;
+    color: #f1f1f1;
+}
+
+body.dark .topbar {
+    background: #2a2a2a;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+
+body.dark .sidebar a {
+    background: #2a2a2a;
+    color: #ddd;
+    border-color: #444;
+}
+
+body.dark .sidebar a:hover {
+    background: #3a3a3a;
+}
+
+body.dark .active {
+    background: #3f4a5f !important;
+}
+
+.settings-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    max-width: 950px; 
+    width: 100%;       
+    margin-top: 20px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d9534f; /* Warna Merah saat OFF */
+    transition: .3s;
+    border-radius: 4px;
+}
+
+/* Tombol Slider Dalam */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 2px;
+}
+
+/* Jalur Belakang Slider - KONDISI ON (Hijau) */
+input:checked + .slider {
+    background-color: #0c5132; /* Warna Hijau Gelap sesuai mockup saat ON */
+}
+
+/* Pergeseran Tombol saat Diaktifkan (ON) */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/* SINKRONISASI TEMA DARK MODE */
+body.dark .settings-container {
+    background: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+body.dark .settings-divider {
+    background: #333333;
+}
+
+body.dark .section-title {
+    color: #ffffff;
+}
+
+body.dark .account-info-list .info-label {
+    color: #aaaaaa;
+}
+
+body.dark .account-info-list .info-value, 
+body.dark .setting-label {
+    color: #e4e6eb;
+}
+
+body.dark .slider {
+    background-color: #d9534f; /* Tetap Merah saat OFF di Dark Mode */
+}
+
+body.dark input:checked + .slider {
+    background-color: #198754; /* Hijau yang sedikit lebih terang agar stand-out di dark mode */
+}
+/* Pembatas Antar Seksi */
+.settings-divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 25px 0;
+}
+
+/* Judul per Seksi */
+.section-title {
+    font-size: 1.2rem;
+    color: #333333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Gaya List Informasi Akun */
+.account-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-info-list li {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.account-info-list .info-label {
+    width: 150px;
+    font-weight: 600;
+    color: #555555;
+}
+
+.account-info-list .info-value {
+    color: #222222;
+}
+
+/* Baris Isian Fitur Toggle Switch */
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.setting-label {
+    font-size: 1rem;
+    color: #444444;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cccccc;
+    transition: .3s;
+    border-radius: 4px; /* Sesuai visual kotak di mockup Anda */
+}
+
+/* Tombol Bulat/Kotak Slider Dalam */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 2px;
+}
+
+/* Warna Jalur saat Kondisi ON (Hijau Gelap sesuai mockup) */
+input:checked + .slider {
+    background-color: #0c5132;
+}
+
+/* Pergeseran Tombol saat Diaktifkan (ON) */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/* SINKRONISASI TEMA DARK MODE */
+body.dark .settings-container {
+    background: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+body.dark .settings-divider {
+    background: #333333;
+}
+
+body.dark .section-title {
+    color: #ffffff;
+}
+
+body.dark .account-info-list .info-label {
+    color: #aaaaaa;
+}
+
+body.dark .account-info-list .info-value, 
+body.dark .setting-label {
+    color: #e4e6eb;
+}
+
+body.dark .slider {
+    background-color: #444444;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column; 
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .topbar {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .topbar-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    #darkModeBtn, .btn-login {
+        width: 100%;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .sidebar {
+        width: 100%; 
+        gap: 6px;
+    }
+
+    .sidebar a {
+        padding: 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .sidebar a:hover {
+        transform: none; 
+    }
+
+    .content {
+        padding: 15px 10px;
+    }
+
+    .settings-container {
+        padding: 20px 15px;
+        margin-top: 10px;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .account-info-list li {
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 12px;
+    }
+
+    .account-info-list .info-label {
+        width: 100%;      /* Label tidak lagi tertahan di 150px */
+        font-size: 0.9rem;
+    }
+
+    .account-info-list .info-value {
+        font-size: 0.95rem;
+        word-break: break-all; /* Mencegah email/username panjang merusak border layar */
+    }
+
+    /* 6. Optimasi Baris Fitur Toggle Switch */
+    .setting-row {
+        margin-bottom: 25px; /* Memberi jarak vertikal agar tidak mudah salah tekan */
+        gap: 15px;
+    }
+
+    .setting-label {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+}

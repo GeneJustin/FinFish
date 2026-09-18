@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    background: #dbe7ff;
+    font-family: Arial, sans-serif;
+    color: #E5F0FF;
+    transition: background 0.3s, color 0.3s;
+}
+
+.page-container {
+    display: flex;
+    padding: 15px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #b4c9f1;
+    padding: 10px 20px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 220px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #222;
+    border: 1px solid #b8c3d6;
+    background: #d7e1f4;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    background: #b9caef;
+}
+
+.active {
+    background: #A6B5D4 !important;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0c3b6e;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #0c3b6e;
+}
+
+#darkModeBtn {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.user-greeting {
+    color: #0c3b6e;
+    font-weight: bold;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(12, 59, 110, 0.2);
+}
+
+.btn-login {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.15);
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.filter-form {
+    display: grid;
+    grid-template-columns: repeat(2, 380px);
+    gap: 20px 60px;
+    margin-bottom: 35px;
+}
+
+.search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.search-row label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.filter-form select, 
+.filter-form input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.range-inputs {
+    display: flex;
+    gap: 15px;
+}
+
+.range-inputs input {
+    flex: 1;
+    text-align: left;
+}
+
+.form-actions {
+    grid-column: span 2;
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-apply, .btn-reset {
+    background-color: #1e88e5 !important;
+    color: #ffffff !important;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-apply:hover, .btn-reset:hover {
+    background-color: #1565c0 !important;
+}
+
+/* ==========================================================================
+   LAYOUT GRID & KARTU IKAN (KONSISTEN & SEJAJAR)
+   ========================================================================== */
+.results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    margin-top: 20px;
+    clear: both;
+}
+
+.fish-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent; 
+}
+
+/* Wadah Bingkai Gambar: Fix Tinggi & Lebar Penuh agar Sejajar */
+.card-image-wrapper {
+    background-color: #ffffff;
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;                 /* Lebar penuh menyesuaikan kolom grid layout */
+    height: 220px;               /* Tinggi kotak disamakan rata 220px untuk semua kartu */
+    border-radius: 6px;         
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;            /* Memastikan sisa gambar di luar kotak terpotong bersih */
+}
+
+/* Gambar Ikan: Mengisi Penuh Wadah tanpa Merusak Aspek Rasio */
+.fish-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* Potong gambar otomatis ke tengah agar memenuhi kotak secara konsisten */
+    object-position: center;     /* Fokus gambar tetap di tengah */
+}
+
+/* Modifikasi Teks Informasi */
+.fish-info h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #000;
+}
+
+.fish-info p {
+    margin: 4px 0;
+    font-size: 15px;
+    color: #000;
+}
+
+.fish-status {
+    font-size: 15px;
+    margin: 4px 0;
+    color: black;
+}
+
+.fish-status .safe {
+    color: #00c853; 
+    font-weight: bold;
+}
+
+.fish-status .warning {
+    color: #ff9800; 
+    font-weight: bold;
+}
+
+.fish-status .danger {
+    color: #e53935; 
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   DARK MODE CONFIGURATION
+   ========================================================================== */
+body.dark {
+    background: #1c1c1c;
+    color: #f1f1f1;
+}
+
+body.dark .topbar {
+    background: #2a2a2a;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+
+body.dark .sidebar a {
+    background: #2a2a2a;
+    color: #ddd;
+    border-color: #444;
+}
+
+body.dark .sidebar a:hover {
+    background: #3a3a3a;
+}
+
+body.dark .active {
+    background: #3f4a5f !important;
+}
+
+body.dark select,
+body.dark input {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark .search-row label {
+    color: #ddd;
+}
+
+body.dark .fish-card {
+    background: transparent;
+}
+
+body.dark .card-image-wrapper {
+    background: #2a2a2a; /* Menyesuaikan warna latar belakang box gambar saat dark mode */
+    border: 1px solid #444;
+}
+
+body.dark .fish-info h4,
+body.dark .fish-info p,
+body.dark .fish-status {
+    color: #f1f1f1;
+}
+
+body.dark .btn-apply,
+body.dark .btn-reset {
+    background: #1e88e5;
+}
+
+body.dark .btn-apply:hover,
+body.dark .btn-reset:hover {
+    background: #1565c0;
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 1024px) {
+    .page-container {
+        flex-direction: column; 
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .topbar {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .topbar-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    #darkModeBtn, .btn-login {
+        width: 100%; 
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .sidebar {
+        width: 100%; 
+        gap: 6px;
+    }
+
+    .sidebar a {
+        padding: 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .sidebar a:hover {
+        transform: none; 
+    }
+
+    .content {
+        padding: 15px 10px;
+    }
+    .filter-form {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        grid-column: span 1;
+    }
+    .results {
+        grid-template-columns: 1fr;
+    }
+    .card-image-wrapper {
+        height: 200px; /* Sedikit dikecilkan jika dibuka di device mobile */
+    }
+}
+
+

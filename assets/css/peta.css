@@ -1,0 +1,282 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    background: #dbe7ff;
+    font-family: Arial, sans-serif;
+    color: #E5F0FF;
+    transition: background 0.3s, color 0.3s;
+}
+
+.page-container {
+    display: flex;
+    padding: 15px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #b4c9f1;
+    padding: 10px 20px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+.user-greeting {
+    color: #0c3b6e;
+    font-weight: bold;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(12, 59, 110, 0.2);
+}
+
+.btn-login {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.15);
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.sidebar {
+    width: 220px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #222;
+    border: 1px solid #b8c3d6;
+    background: #d7e1f4;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    background: #b9caef;
+}
+
+.active {
+    background: #A6B5D4 !important;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0c3b6e;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #0c3b6e;
+}
+
+#darkModeBtn {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+body.dark {
+    background: #1c1c1c;
+    color: #f1f1f1;
+}
+
+/* TOPBAR */
+body.dark .topbar {
+    background: #2a2a2a;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+
+/* SIDEBAR */
+body.dark .sidebar a {
+    background: #2a2a2a;
+    color: #ddd;
+    border-color: #444;
+}
+
+body.dark .sidebar a:hover {
+    background: #3a3a3a;
+}
+
+/* ACTIVE MENU */
+body.dark .active {
+    background: #3f4a5f !important;
+}
+
+/* FORM FIELD */
+body.dark select,
+body.dark input {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark .search-row label {
+    color: #ddd;
+}
+
+body.dark .fish-card {
+    background: #2a2a2a;
+}
+
+body.dark .fish-info h4,
+body.dark .fish-info p,
+body.dark .fish-status {
+    color: #f1f1f1;
+}
+
+body.dark .btn-apply,
+body.dark .btn-reset {
+    background: #1e88e5;
+}
+
+body.dark .btn-apply:hover,
+body.dark .btn-reset:hover {
+    background: #1565c0;
+}
+
+body.dark .card-image-wrapper {
+    background: #333;
+}
+
+.map-wrapper img{
+    width: 100%;
+    max-width: 700px;
+}
+
+.island-btn{
+    position: absolute;
+    padding: 6px 10px;
+    border: none;
+    background: #1e88e5;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.island-btn.active{
+    background: #e53935;
+}
+.table-wrapper{
+    margin-top: 20px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    color: black;
+}
+.map-wrapper{
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+body.dark th,
+body.dark td {
+    color: #ffffff;
+    border-bottom: 1px solid #555;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column; 
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .topbar {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .topbar-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    #darkModeBtn, .btn-login {
+        width: 100%; 
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .sidebar {
+        width: 100%; 
+        gap: 6px;
+    }
+
+    .sidebar a {
+        padding: 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .sidebar a:hover {
+        transform: none; 
+    }
+
+    .content {
+        padding: 15px 10px;
+    }
+ 
+    .map-wrapper {
+        overflow-x: auto; /* Jika pin koordinat absolute bergeser, peta bisa di-scroll */
+        padding-bottom: 10px;
+    }
+
+    .map-wrapper img {
+        min-width: 450px; /* Mencegah peta terlalu kekecilan agar tombol pin tetap bisa ditekan */
+    }
+
+    /* 6. Membuat Tabel Bisa Di-scroll Kanan-Kiri agar Tidak Melebar Merusak Layar */
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 500px; /* Memaksa batas minimal tabel agar data teks tidak menumpuk sempit */
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
