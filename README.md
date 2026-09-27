@@ -1,4 +1,4 @@
-# FinFish
+# 🐟 FinFish
 
 A web app for mapping fish species distribution and population data across Indonesian islands and regions.
 
